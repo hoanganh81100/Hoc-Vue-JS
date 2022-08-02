@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conditions VueJS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+  <style>
+    .board {
+      margin: 0;
+      padding: 0;
+    }
+    .board li {
+      cursor: pointer;
+      display: inline-block;
+      padding: 10px 15px;
+      border: 1px solid black;
+    }
+    .login, .register {
+      width: 200px;
+      padding: 15px;
+      margin-top: 10px;
+      border: 1px solid black;
+    }
+    ul, li {
+      margin-left: 1px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <ul class="board">
+      <li v-on:click=" presentlyBoard('login') ">Login</li>
+      <li v-on:click=" presentlyBoard('register') ">Register</li>
+    </ul>
+    <!-- <div class="login" v-show=" boardSelected === 'login' "> -->
+    <div class="login" v-if=" boardSelected === 'login' ">
+      <h2>Form login</h2>
+      <form action="">
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <button>Login</button>
+      </form>
+    </div>
+    <!-- <div class="register" v-else-if=" boardSelected === 'register' "> -->
+    <!-- <div class="register" v-show=" boardSelected === 'register' "> -->
+    <div class="register" v-else>
+      <h2>Form register</h2>
+      <form action="">
+        <input type="text" placeholder="Name">
+        <input type="email" placeholder="Email">
+        <input type="text" placeholder="Phone number">
+        <input type="password" placeholder="Password">
+        <button>Register</button>
+      </form>
+    </div>
+  </div>
+</body>
+<script src="main.js"></script>
+</html>
