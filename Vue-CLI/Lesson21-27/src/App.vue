@@ -4,7 +4,9 @@
     <!--<CompHeader />-->
     <comp-header v-bind:header ="header"/>
     <img src="./assets/logo.png">
-    <list-user v-bind:listUser="listUser"/>
+    <div class="container">
+      <list-user v-bind:listUser="listUser"/>
+    </div>
     <comp-footer v-bind:footer ="footer"/>
   </div>
 </template>
@@ -54,5 +56,9 @@ export default {
     text-align: center;
     color: #2c3e50;
     margin-top: 60px;
+  }
+  .container {
+    margin: 0 auto;
+    padding: 0 15px;
   }
 </style>

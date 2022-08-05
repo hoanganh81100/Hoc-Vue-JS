@@ -22,5 +22,11 @@ export default {
 </script>
 
 <style>
-
+  h3 {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    width: 200px;
+    height: 25px;
+  }
 </style>
