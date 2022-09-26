@@ -1,4 +1,4 @@
-# hoc-lap-trinh-vuejs
+# vuejs
 
 > A Vue.js project
 

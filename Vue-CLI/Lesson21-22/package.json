@@ -1,8 +1,8 @@
 {
-  "name": "hoc-lap-trinh-vuejs",
+  "name": "vuejs",
   "description": "A Vue.js project",
   "version": "1.0.0",
-  "author": "",
+  "author": "Vu Hoang Anh <hoanganh81100@gmail.com>",
   "license": "MIT",
   "private": true,
   "scripts": {
