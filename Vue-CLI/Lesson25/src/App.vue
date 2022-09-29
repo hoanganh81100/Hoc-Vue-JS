@@ -16,7 +16,7 @@ export default {
   name: 'app',
   data () {
     return {
-      msg: 'Hello, Welcome to Your Vue.js App !!!'
+      msg: 'The Progressive JavaScript Framework'
     }
   },
   components: {

@@ -1,10 +1,18 @@
 <template>
   <div id="app">
-    <comp-header v-bind:headerTitle="headerTitle"></comp-header>
-    <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
-    <list-user v-bind:listUser="listUser"></list-user>
-    <comp-footer v-bind:footerTitle="footerTitle"></comp-footer>
+    <div class="container">
+      <button v-on:click="headerTitle = 'Hello, Welcome to Your Vue.js App !!!'">Thay Đổi Title Từ Component App.vue</button>
+      <button v-on:click="headerTitle = 'Học Lập Trình VueJS'">Thay Đổi Title Từ Component App.vue</button>
+      <comp-header
+        v-bind:headerTitle="headerTitle"
+        v-on:changeTitleEvent="handleChangeTitle"
+        ></comp-header>
+      <img src="./assets/logo.png">
+      <h1>{{ msg }}</h1>
+      <list-user v-bind:listUser="listUser"></list-user>
+      <comp-footer v-bind:footerTitle="footerTitle"></comp-footer>
+    </div>
+    
   </div>
 </template>
 
@@ -33,11 +41,21 @@ export default {
     CompHeader,
     ListUser,
     CompFooter
+  },
+  methods: {
+    handleChangeTitle(data) {
+      this.headerTitle = data.title
+      console.log(data)
+    }
   }
 }
 </script>
 
 <style>
+* {
+  box-sizing: border-box;
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -47,7 +65,9 @@ export default {
   margin-top: 60px;
 }
 
-h1 {
-  font-weight: normal;
+.container {
+  margin: 0 auto;
+  padding: 0 15px;
+  max-width: 1200px;
 }
 </style>
