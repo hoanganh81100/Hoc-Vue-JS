@@ -5,11 +5,15 @@
         v-bind:activePlayer="activePlayer"
         v-bind:scoresPlayer="scoresPlayer"
         v-bind:currentScore="currentScore"
+        v-bind:isWinner="isWinner"
       />
       <controls
+        v-bind:isPlaying="isPlaying"
         v-on:handleNewGame="handleNewGame"
         v-on:handleRollDice="handleRollDice"
         v-on:handleHoldScore="handleHoldScore"
+        v-bind:finalScore="finalScore"
+        v-on:handleFinalScore="handleFinalScore"
       />
       <dices
         v-bind:dices="dices"
@@ -34,9 +38,10 @@ export default {
       isPlaying: false,
       isOpenPopup: false,
       activePlayer: 0, //Người chơi hiện tại
-      dices: [6, 6],
       scoresPlayer: [0, 0],
-      currentScore: 0
+      currentScore: 0,
+      dices: [6, 6],
+      finalScore: 0,
     }
   },
   components: {
@@ -45,13 +50,21 @@ export default {
     Controls,
     Dices
   },
+  computed: {
+    isWinner() {
+      let { scoresPlayer, finalScore } = this;
+      if(scoresPlayer[0] >= finalScore || scoresPlayer[1] >= finalScore) {
+        this.isPlaying = false;
+        return true;
+      }
+      return false;
+    }
+  },
   methods: {
     handleNewGame() {
-      console.log('App.vue nhận New Game từ Controls.vue truyền ra handleNewGame');
       this.isOpenPopup = true;
     },
     handleConFirm() {
-      console.log('App.vue nhận confirm từ PopupRule.vue truyền ra handleConFirm');
       this.isPlaying = true;
       this.isOpenPopup = false;
       this.activePlayer = 0;
@@ -60,7 +73,6 @@ export default {
       this.currentScore = 0;
     },
     handleRollDice() {
-      console.log('App.vue nhận Roll Dice từ Controls.vue truyền ra handleRollDice');
       if (this.isPlaying) {
         var dice1 = Math.floor(Math.random() * 6) + 1;
         var dice2 = Math.floor(Math.random() * 6) + 1;
@@ -85,17 +97,27 @@ export default {
     },
     handleHoldScore() {
       if (this.isPlaying) {
-        console.log('App.vue nhận Hold Score từ Controls.vue truyền ra handleHoldScore')
         let {activePlayer, scoresPlayer, currentScore} = this;
         let scoreOld = scoresPlayer[activePlayer];
         //let cloneScorePlayer = [...scoresPlayer];
         //    cloneScorePlayer[activePlayer] = scoreOld + currentScore;
         //this.scoresPlayer = cloneScorePlayer;
         this.$set(this.scoresPlayer, activePlayer, scoreOld + currentScore);
+        if (!this.isWinner){
         this.nextPlayer();
+        }
       } else {
         alert('Vui lòng nhấn vào nút New Game')
       }
+    },
+    handleFinalScore(event) {
+      var number = parseInt(event.target.value);
+      if(isNaN(number)) {
+        this.finalScore = '';
+      } else {
+        this.finalScore = number;
+      }
+      console.log(parseInt(event.target.value))
     }
   }
 }

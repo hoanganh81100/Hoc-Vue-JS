@@ -64,9 +64,9 @@ export default {
   -webkit-transform-origin: 75px 75px 0;
   -ms-transform-origin: 75px 75px 0;
   transform-origin: 75px 75px 0;
-  -webkit-transition: all .9s ease;
-  -o-transition: all .9s ease;
-  transition: all .9s ease;
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
   -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
   -ms-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
   -o-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
@@ -79,7 +79,7 @@ export default {
   height: 150px;
   border: 1px solid #ccc;
   text-align: center;
-  line-height: 150px;
+  line-height: 120px;
   font-size: 100px;
   color: #42b983;
   font-size: 0;
@@ -95,24 +95,24 @@ export default {
 }
 
 .spinner.dice-2 {
-  -webkit-transform: rotateX(0deg) rotateY(-90deg) rotateZ(0deg);
-  -ms-transform: rotateX(0deg) rotateY(-90deg) rotateZ(0deg);
-  -o-transform: rotateX(0deg) rotateY(-90deg) rotateZ(0deg);
-  transform: rotateX(0deg) rotateY(-90deg) rotateZ(0deg);
-}
-
-.spinner.dice-3 {
   -webkit-transform: rotateX(0deg) rotateY(-90deg) rotateZ(90deg);
   -ms-transform: rotateX(0deg) rotateY(-90deg) rotateZ(90deg);
   -o-transform: rotateX(0deg) rotateY(-90deg) rotateZ(90deg);
   transform: rotateX(0deg) rotateY(-90deg) rotateZ(90deg);
 }
 
+.spinner.dice-3 {
+  -webkit-transform: rotateX(0deg) rotateY(-90deg) rotateZ(0deg);
+  -ms-transform: rotateX(0deg) rotateY(-90deg) rotateZ(0deg);
+  -o-transform: rotateX(0deg) rotateY(-90deg) rotateZ(0deg);
+  transform: rotateX(0deg) rotateY(-90deg) rotateZ(0deg);
+}
+
 .spinner.dice-4 {
-  -webkit-transform: rotateX(0deg) rotateY(180deg) rotateZ(90deg);
-  -ms-transform: rotateX(0deg) rotateY(180deg) rotateZ(90deg);
-  -o-transform: rotateX(0deg) rotateY(180deg) rotateZ(90deg);
-  transform: rotateX(0deg) rotateY(180deg) rotateZ(90deg);
+  -webkit-transform: rotateX(90deg) rotateY(90deg) rotateZ(0deg);
+  -ms-transform: rotateX(90deg) rotateY(90deg) rotateZ(0deg);
+  -o-transform: rotateX(90deg) rotateY(90deg) rotateZ(0deg);
+  transform: rotateX(90deg) rotateY(90deg) rotateZ(0deg);
 }
 
 .spinner.dice-5 {
@@ -123,61 +123,61 @@ export default {
 }
 
 .spinner.dice-6 {
-  -webkit-transform: rotateX(90deg) rotateY(90deg) rotateZ(0deg);
-  -ms-transform: rotateX(90deg) rotateY(90deg) rotateZ(0deg);
-  -o-transform: rotateX(90deg) rotateY(90deg) rotateZ(0deg);
-  transform: rotateX(90deg) rotateY(90deg) rotateZ(0deg);
+  -webkit-transform: rotateX(0deg) rotateY(180deg) rotateZ(90deg);
+  -ms-transform: rotateX(0deg) rotateY(180deg) rotateZ(90deg);
+  -o-transform: rotateX(0deg) rotateY(180deg) rotateZ(90deg);
+  transform: rotateX(0deg) rotateY(180deg) rotateZ(90deg);
 }
 
 .spinner .face1 {
-  -webkit-transform: translateZ(60px);
-  -ms-transform: translateZ(60px);
-  transform: translateZ(60px);
+  -webkit-transform: translateZ(75px);
+  -ms-transform: translateZ(75px);
+  transform: translateZ(75px);
   background-image: url('/public/images/dice-1.png');
   background-position: center;
   background-size: cover;
 }
 
 .spinner .face2 {
-  -webkit-transform: rotateY(90deg) translateZ(60px);
-  -ms-transform: rotateY(90deg) translateZ(60px);
-  transform: rotateY(90deg) translateZ(60px);
+  -webkit-transform: rotateY(90deg) rotateX(90deg) translateZ(75px);
+  -ms-transform: rotateY(90deg) rotateX(90deg) translateZ(75px);
+  transform: rotateY(90deg) rotateX(90deg) translateZ(75px);
   background-image: url('/public/images/dice-2.png');
   background-position: center;
   background-size: cover;
 }
 
 .spinner .face3 {
-  -webkit-transform: rotateY(90deg) rotateX(90deg) translateZ(60px);
-  -ms-transform: rotateY(90deg) rotateX(90deg) translateZ(60px);
-  transform: rotateY(90deg) rotateX(90deg) translateZ(60px);
+  -webkit-transform: rotateY(90deg) translateZ(75px);
+  -ms-transform: rotateY(90deg) translateZ(75px);
+  transform: rotateY(90deg) translateZ(75px);
   background-image: url('/public/images/dice-3.png');
   background-position: center;
   background-size: cover;
 }
 
 .spinner .face4 {
-  -webkit-transform: rotateY(180deg) rotateZ(90deg) translateZ(60px);
-  -ms-transform: rotateY(180deg) rotateZ(90deg) translateZ(60px);
-  transform: rotateY(180deg) rotateZ(90deg) translateZ(60px);
+  -webkit-transform:rotateX(-90deg) translateZ(75px);
+  -ms-transform:rotateX(-90deg) translateZ(75px);
+  transform:rotateX(-90deg) translateZ(75px);
   background-image: url('/public/images/dice-4.png');
   background-position: center;
   background-size: cover;
 }
 
 .spinner .face5 {
-  -webkit-transform: rotateY(-90deg) rotateZ(90deg) translateZ(60px);
-  -ms-transform: rotateY(-90deg) rotateZ(90deg) translateZ(60px);
-  transform: rotateY(-90deg) rotateZ(90deg) translateZ(60px);
+  -webkit-transform: rotateY(-90deg) rotateZ(90deg) translateZ(75px);
+  -ms-transform: rotateY(-90deg) rotateZ(90deg) translateZ(75px);
+  transform: rotateY(-90deg) rotateZ(90deg) translateZ(75px);
   background-image: url('/public/images/dice-5.png');
   background-position: center;
   background-size: cover;
 }
 
 .spinner .face6 {
-  -webkit-transform:rotateX(-90deg) translateZ(60px);
-  -ms-transform:rotateX(-90deg) translateZ(60px);
-  transform:rotateX(-90deg) translateZ(60px);
+  -webkit-transform: rotateY(180deg) rotateZ(90deg) translateZ(75px);
+  -ms-transform: rotateY(180deg) rotateZ(90deg) translateZ(75px);
+  transform: rotateY(180deg) rotateZ(90deg) translateZ(75px);
   background-image: url('/public/images/dice-6.png');
   background-position: center;
   background-size: cover;

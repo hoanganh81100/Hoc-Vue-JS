@@ -1,7 +1,7 @@
 <template>
   <div class="players">
     <div class="player-panel" v-bind:class="{ active: activePlayer == 0 }">
-        <div class="player-name">Player 1</div>
+        <div class="player-name">{{ getNamePlayer[0] }}</div>
         <div class="player-score">{{ scoresPlayer[0] }}</div>
         <div class="player-current-box">
           <div class="player-current-label">Current</div>
@@ -9,7 +9,7 @@
         </div>
       </div>
       <div class="player-panel" v-bind:class="{ active: activePlayer == 1 }">
-        <div class="player-name">Player 2</div>
+        <div class="player-name">{{ getNamePlayer[1] }}</div>
         <div class="player-score">{{ scoresPlayer[1] }}</div>
         <div class="player-current-box">
           <div class="player-current-label">Current</div>
@@ -28,18 +28,32 @@ export default {
       default: 0
     },
     scoresPlayer: {
-      type: Array
+      type: Array,
+      default: [0, 0]
     },
     currentScore: {
       type: Number,
       default: 0
+    },
+    isWinner: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
     return {
       
     }
-  }  
+  },
+  methods: {
+    getNamePlayer(index) {
+      var defaultName = 'Player ' + (index + 1);
+      if (this.activePlayer == index && this.isWinner) {
+        defaultName = 'Winner !!!';
+      }
+      return defaultName;
+    }
+  }
 }
 </script>
 

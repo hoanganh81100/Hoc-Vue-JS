@@ -3,35 +3,61 @@
     <button
       v-on:click="newGame"
       class="control btn-game"><i class="fa-solid fa-circle-play"></i>New Game</button>
+    
     <button
       v-on:click="rollDice"
       class="control btn-roll"><i class="fa-solid fa-dice"></i>Roll Dice</button>
+    
     <button
       v-on:click="holdScore"
       class="control btn-hold"><i class="fa-solid fa-circle-down"></i>Hold Score</button>
-    <input type="number" placeholder="Final score" class="final-score">
+    
+    <!--Thay đổi trong file Controls.vue-->
+    <!--<input
+      v-model="finalScore"
+      type="number" placeholder="Final score" class="final-score">-->
+    
+    <!--Truyền từ file App.vue vào Controls.vue-->
+    <!--<input
+      v-bind:value="finalScore"
+      v-on:input="finalScore = $event.target.value"
+      type="number" placeholder="Final score" class="final-score">-->
+    
+    <!--Truyền từ file Controls.vue ra App.vue-->
+    <input
+      v-bind:disabled="isPlaying"
+      v-bind:value="finalScore"
+      v-on:input="$emit('handleFinalScore', $event)"
+      type="number" placeholder="Final score" class="final-score">
   </div>
 </template>
 
 <script>
 export default {
   name: 'controls',
+  props: {
+    finalScore: {
+      type: [Number, String],
+      default: 0
+    },
+    isPlaying: {
+      type:Boolean,
+      default: false
+    }
+  },
   data() {
     return {
-      
+      //finalScore: 'Final score'
     }
   },
   methods: {
     newGame() {
-      console.log('New Game từ Controls.vue truyền ra handleNewGame của App.vue');
       this.$emit('handleNewGame')
     },
     rollDice() {
-      console.log('Roll Dice từ Controls.vue truyền ra handleRollDice của App.vue')
       this.$emit('handleRollDice')
     },
     holdScore() {
-      console.log('Hold Score từ Controls.vue truyền ra handleHoldScore của App.vue')
       this.$emit('handleHoldScore')
     }
   }
